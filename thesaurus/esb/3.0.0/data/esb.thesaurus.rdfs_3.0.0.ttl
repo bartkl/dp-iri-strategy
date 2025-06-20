@@ -1,0 +1,11 @@
+@prefix : <https://id.nbnl.info/thesaurus/esb/> .
+
+<https://id.nbnl.info/thesaurus/esb> rdf:type owl:Ontology ;
+  owl:ontologyIRI <https://id.nbnl.info/thesaurus/esb> ;
+  owl:versionInfo "3.0.0" ;
+  skos:definition "Begrippenmodel voor Energiesysteembeheer."@nl ;
+  dct:title "Energiesysteembeheer"@nl ;
+
+:sbiCode a skos:Concept ;
+    skos:prefLabel "SBI-code" ;
+    skos:definition "Gevalletje."@nl .

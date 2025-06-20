@@ -1,0 +1,49 @@
+server {
+	listen 80;
+	server_name id.nbnl.info;
+
+	root /home/bart/Programming/sandbox/dp-iri-strategy;
+
+	location = / {
+		# Fall-back.
+		return 200 "";
+	}
+
+	location ~* ^/data-product/(?<schema>[a-zA-Z0-9_-]+)/schema$ {
+		set $req_from_human 0;
+		set $req_contains_version 0;
+		add_header Vary "User-Agent, Accept";
+
+		if ($http_user_agent ~* "^Mozilla|Chrome|Safari|Edge|Firefox") {
+			set $req_from_human 1;
+		}
+		if ($arg_version) {
+			set $req_contains_version 1;
+		}
+
+		set $from_human_with_version "${req_from_human}${req_contains_version}";
+
+		# Human.
+		if ($from_human_with_version = "11") {
+			#return 303 https://netbeheer-nederland.github.io/docs/dp-$schema/v$arg_version/index.html;
+			return 303 /doc/dp_meetdata_$arg_version.html;
+		}
+
+		if ($from_human_with_version = "10") {
+			#return 303 https://netbeheer-nederland.github.io/docs/dp-$schema/latest/index.html;
+			return 303 /doc/dp_meetdata_$arg_version.html;
+		}
+
+		# Machine.
+		if ($from_human_with_version = "01") {
+			return 303 https://raw.githubusercontent.com/Netbeheer-Nederland/dp-$schema/refs/tags/v$arg_version/information_models/dp_$schema.schema.linkml.yml;  # `v0` will be `main` in future.
+		}
+
+		if ($from_human_with_version = "00") {
+			return 303 https://raw.githubusercontent.com/Netbeheer-Nederland/dp-$schema/refs/heads/v0/information_models/dp_$schema.schema.linkml.yml;  # `v0` will be `main` in future.
+		}
+	}
+}
+
+
+ #BUG: Antora renames the latest version number to `latest`, so explicitly requesting `v1.1.0` does not work for `dp-meetdata` right now.
