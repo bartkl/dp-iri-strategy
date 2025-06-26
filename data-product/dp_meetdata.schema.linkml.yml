@@ -1,8 +1,7 @@
 name: meetdata
-#version: 1.1.0  # TODO: Versioning not interesting? Leave to git?
 description: Information models for the Meetdata data product.
 title: Meetdata
-id: https://data.netbeheernederland.nl/data-product/meetdata  # TODO: 1. Versioned or not?; 2. `id` vs `data`.
+id: https://data.netbeheernederland.nl/data-product/meetdata
 imports:
 - linkml:types
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
