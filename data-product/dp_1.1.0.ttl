@@ -1,0 +1,13 @@
+@prefix vocab: <https://data.nbnl.info/ontology/> .
+@prefix schema: <https://data.nbnl.info/schema/> .
+@prefix : <https://data.nbnl.info/data-product/> .
+
+
+:hasVocabulary rdfs:subPropertyOf dct:conformsTo .  # TODO: Use DX-Prof
+:hasSchema rdfs:subPropertyOf dct:conformsTo .
+
+
+:Meetdata a dcat:Dataset ;
+    # dct:version  # TODO: Versions feel unncessary. Let Git refs do the work! Old version don't matter anyway.
+    :hasVocabulary vocab:meetdata .  # TODO: Or use opaque names for inlined vocabs/schemas such as these in data products, and meaningful ones otherwise?
+    :hasSchema schema:meetdata .

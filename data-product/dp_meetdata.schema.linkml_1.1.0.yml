@@ -1,5 +1,5 @@
 name: meetdata
-version: 1.1.0
+#version: 1.1.0  # TODO: Versioning not interesting? Leave to git?
 description: Information models for the Meetdata data product.
 title: Meetdata
 id: https://data.netbeheernederland.nl/data-product/meetdata  # TODO: 1. Versioned or not?; 2. `id` vs `data`.
@@ -11,9 +11,30 @@ prefixes:
   cim: https://cim.ucaiug.io/ns#
   cim-nbnl: https://id.nbnl.info/ontology/cim-nbnl/
   nbnl-term: https://id.nbnl.info/thesaurus/energiesysteembeheer/
-  vocab: https://id.nbnl.info/dprod/meetdata/vocab/
+  vocab: https://id.nbnl.info/vocab/meetdata/
 classes:
+  MarketEvaluationPointWithName:
+    alias: MarketEvaluationPoint  # NOTE: Local name unchanged
+    class_uri: cim:MarketEvaluationPoint
+    description: The identification of an entity where energy products are measured
+      or computed.
+    exact_mappings:
+      - nbnl-term:aansluiting  # TODO: 1. Opaque names for SKOS concepts?; 2. Remove from schema and get from vocabulary?.
+    is_a: UsagePoint
+    attributes:
+      sbi_codes:
+        description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
+          of Commerce to classify activities performed by an organisation.
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes  # TODO: Or `cim-nbnl:`?
+        range: string
+        required: false
+        multivalued: true
+      name:
+        range: string
+        required: true  # NOTE: Added required field so had to introduce new class and deprecate old one for backward compatibility.
   MarketEvaluationPoint:
+    alias: MarketEvaluationPoint  # NOTE: Local name unchanged
+    deprecated: true
     class_uri: cim:MarketEvaluationPoint
     description: The identification of an entity where energy products are measured
       or computed.

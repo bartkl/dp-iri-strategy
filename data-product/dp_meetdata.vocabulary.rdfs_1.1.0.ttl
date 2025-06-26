@@ -1,9 +1,10 @@
-@prefix : <https://id.nbnl.info/dprod/meetdata/vocab> .
+@prefix : <https://id.nbnl.info/vocab/meetdata> .
 @prefix nbnl-term: <https://id.nbnl.info/thesaurus/ebs/> .
 
 <https://id.nbnl.info/dprod/meetdata/vocab> rdf:type owl:Ontology ;
   owl:ontologyIRI <http://id.nbnl.info/dprod/meetdata/vocab> ;
-  owl:versionInfo "1.1.0" ;
+  #owl:versionIRI <http://raw.githuserusercontent.com/nbnl/meetdata/912313212/dp-meetdata_1.1.0.ttl> ;  # TODO: Include?
+  #owl:versionInfo "1.1.0" ;  # TODO: Leave to git?
   skos:definition "Information models for the Meetdata data product."@en ;
   dct:title "Meetdata"@nl ;
 
@@ -14,6 +15,7 @@ cim:MarketEvaluationPoint a rdfs:Class .
 
 # Own definitions
 :MarketEvaluationPoint.sbiCodes a rdf:Property ;
+    skos:prefLabel "SBI Codes" ;
     rdfs:comment "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."@en ;
     rdfs:domain cim:MarketEvaluationPoint ;
     rdfs:range xsd:string ;
@@ -22,7 +24,8 @@ cim:MarketEvaluationPoint a rdfs:Class .
 
 
 # Own definitions
-:MarketEvaluationPoint.sbiCodes2 a rdf:Property ;
+:MarketEvaluationPoint.sbiCodes2 a rdf:Property ;  # TODO: Or: fully opaque.
+    skos:prefLabel "SBI Codes" ;
     rdfs:comment "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."@en ;
     rdfs:domain cim:MarketEvaluationPoint ;
     rdfs:range xsd:string ;
