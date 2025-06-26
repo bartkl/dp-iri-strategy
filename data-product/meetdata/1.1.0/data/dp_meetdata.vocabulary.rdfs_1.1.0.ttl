@@ -16,5 +16,14 @@ cim:MarketEvaluationPoint a rdfs:Class .
 :MarketEvaluationPoint.sbiCodes a rdf:Property ;
     rdfs:comment "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."@en ;
     rdfs:domain cim:MarketEvaluationPoint ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
     skos:exactMatch nbnl-term:sbiCodes ;
+    owl:deprecated true .
+
+
+# Own definitions
+:MarketEvaluationPoint.sbiCodes2 a rdf:Property ;
+    rdfs:comment "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."@en ;
+    rdfs:domain cim:MarketEvaluationPoint ;
+    rdfs:range xsd:string ;
+    skos:exactMatch nbnl-term:sbiCodes .
