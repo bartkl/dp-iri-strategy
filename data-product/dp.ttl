@@ -1,13 +1,29 @@
-@prefix vocab: <https://data.nbnl.info/ontology/> .
-@prefix schema: <https://data.nbnl.info/schema/> .
-@prefix : <https://data.nbnl.info/data-product/> .
+@prefix : <https://nbnl.info/data-product/> .
+
+:meetdata a dcat:Dataset ;
+    dct:creator "NBNL: Team Semantiek" ;
+    owl:versionIRI <https://rawusercontent.github.com/meetdata/9f1199ab> .  # git-ref
+
+    dct:conformsTo <https://nbnl.info/profile/core-eq> ,
+    :usesVocabulary <https://nbnl.info/ontology/meetdata> ,
+                   <https://nbnl.info/ontology/core-eq> .
+    :hasSchema <https://nbnl.info/schema/meetdata/v1> ,
+               <https://nbnl.info/schema/meetdata/v2> ,
+               <https://nbnl.info/schema/meetdata/v3> .
 
 
-:hasVocabulary rdfs:subPropertyOf dct:conformsTo .  # TODO: Use DX-Prof
+
+# TODO: Use terms from DX-PROF or another standard.
+:usesVocabulary rdfs:subPropertyOf dct:conformsTo .
 :hasSchema rdfs:subPropertyOf dct:conformsTo .
 
-
-:Meetdata a dcat:Dataset ;
+# NOTES
+    # :usesThesaurus rdfs:subPropertyOf dct:conformsTo .
     # dct:version  # TODO: Versions feel unncessary. Let Git refs do the work! Old version don't matter anyway.
-    :hasVocabulary vocab:meetdata .  # TODO: Or use opaque names for inlined vocabs/schemas such as these in data products, and meaningful ones otherwise?
-    :hasSchema schema:meetdata .
+    # :hasSchema <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/heads/main/information_models/dp_meetdata.schema.linkml.yml> .  # This one could break upon migration... AND it is not a resource, but a representation, that's semantically mismatching
+    # :hasSchema :meetdata/schema .  # TODO: Or this because of inlined character?
+    # :hasSchema schema:12350 .  # TODO: Or this one because of inline character? Plus it could move to another defkind like profile (especially ontology terms)
+    # :hasVocabulary vocab:8898 .
+    :usesThesaurus <https://nbnl.info/schema/> .
+
+# Version IRI mag breken, is geen probleem; is vooral bedoeld om versie te duiden

@@ -1,7 +1,7 @@
-@prefix : <https://id.nbnl.info/thesaurus/esb/> .
+@prefix : <https://nbnl.info/thesaurus/esb/> .
 
-<https://id.nbnl.info/thesaurus/esb> rdf:type owl:Ontology ;
-  owl:ontologyIRI <https://data.nbnl.info/thesaurus/esb> ;
+<https://nbnl.info/thesaurus/esb> rdf:type owl:Ontology ;
+  owl:ontologyIRI <https://nbnl.info/thesaurus/esb> ;
   skos:definition "Begrippenmodel voor Energiesysteembeheer."@nl ;
   dct:title "Energiesysteembeheer"@nl .
 

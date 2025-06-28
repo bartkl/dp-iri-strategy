@@ -1,18 +1,18 @@
-@prefix : <https://id.nbnl.info/vocab/meetdata> .
-@prefix nbnl-term: <https://id.nbnl.info/thesaurus/ebs/> .
+@prefix : <https://nbnl.info/vocab/meetdata> .
+@prefix nbnl-term: <https://nbnl.info/thesaurus/ebs/> .
 
-<https://id.nbnl.info/dprod/meetdata/vocab> rdf:type owl:Ontology ;
-  owl:ontologyIRI <http://id.nbnl.info/dprod/meetdata/vocab> ;
+<https://nbnl.info/vocab/meetdata> rdf:type owl:Ontology ;
+  owl:ontologyIRI <https://nbnl.info/vocab/meetdata> ;
   skos:definition "Information models for the Meetdata data product."@en ;
   dct:title "Meetdata"@nl ;
 
 
-# Copied from CIM for local reference
+# Copied from CIM for local reference  # TODO: Should we?
 ## TODO: Omit once resolvable URIs work for the CIM?
 cim:MarketEvaluationPoint a rdfs:Class .
 
 # Own definitions
-:MarketEvaluationPoint.sbiCodes a rdf:Property ;
+:MarketEvaluationPoint.sbiCodes a owl:DatatypeProperty ;
     skos:prefLabel "SBI Codes" ;
     rdfs:comment "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."@en ;
     rdfs:domain cim:MarketEvaluationPoint ;

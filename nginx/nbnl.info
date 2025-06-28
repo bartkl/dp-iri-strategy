@@ -9,7 +9,7 @@ server {
 		return 200 "";
 	}
 
-	location ~* ^/data-product/(?<schema>[a-zA-Z0-9_-]+)/schema$ {
+	location ~* ^/data-product/(?<dp>[a-zA-Z0-9_-]+)$ {
 		set $req_from_human 0;
 		set $req_contains_version 0;
 		add_header Vary "User-Agent, Accept";
