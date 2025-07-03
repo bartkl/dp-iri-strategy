@@ -1,0 +1,73 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gh: <https://github.com/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <https://nbnl.info/> .
+
+<data-product/meetdata> a prof:Profile ;
+    rdfs:label "Data Product: Meetdata"@en ;
+    dcterms:title "Data product: Meetdata"@nl ,
+                  "Data product: Measurement data"@en ;
+    pav:version "1.1.0" ;
+    dcterms:issued "2025-03-06T17:59:40+01:00"^^xsd:dateTime ;
+    dcterms:conformsTo <profile/core-eq> ,
+                       <https://nbnl.info/thesaurus/energiesysteembeheer> ;
+    dcterms:contributor gh:bartkl ,
+                        gh:r1tger ;
+    dcterms:creator <https://www.netbeheer-nederland.com> ;
+    dcterms:publisher <https://www.netbeheer-nederland.com> ;
+    dcterms:description "Meetdata."@nl ,
+                        "Measurement data."@en ;
+    dcterms:language "en-GB"^^xsd:language ;
+
+    dcterms:license <http://www.apache.org/licenses/LICENSE-2.0> ;
+    dcterms:rightsHolder <https://www.netbeheer-nederland.com> ;
+
+    prof:hasResource <schema/meetdata> .
+
+# TODO: Consider defining own roles.
+
+# TODO: Hier kan een RDF-client dus niets mee, met deze manier van versie-indicatie.
+# Hij heeft geen idee hoe de specifieke versie op te halen. Of dat erg is, is een tweede.
+<https://cim.ucaiug.io> a dcterms:Standard ;
+    pav:version "CIMv18" .
+
+<https://w3id.org/linkml> a dcterms:Standard ;
+    pav:version "1.8.5" .
+
+<schema/meetdata> a prof:ResourceDescriptor ;
+    pav:version "1.1.0" ;
+    rdfs:label "Schema"@en ;
+    dcterms:title "Meetdata schema" ;
+    dcterms:description "Schema"@en ;
+    dcterms:conformsTo <https://w3id.org/linkml> ;
+    dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
+    prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+    prof:hasRole role:schema ,
+                 role:vocabulary .
+
+<data-product/meetdata> a prof:ResourceDescriptor ;
+    pav:version "1.1.0" ;
+    rdfs:label "Documentation"@en ;
+    dcterms:title "Meetdata schema" ;
+    dcterms:description "Schema"@en ;
+    dcterms:conformsTo <https://html.spec.whatwg.org> ;
+    dcterms:format <https://www.iana.org/assignments/media-types/text/html> ;
+    prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+    prof:hasRole role:specification ,
+                 role:guide .
+
+# <constraints/meetdata> a prof:ResourceDescriptor ;
+#     pav:version "1.1.0" ;
+#     rdfs:label "Constraints"@en ;
+#     dcterms:title "Meetdata constraints" ;
+#     dcterms:description "Constraints"@en ;
+#     dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+#     dcterms:format <https://www.iana.org/assignments/media-types/application/ld+json> ;
+#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.constraints.shacl.jsonld> ;
+#     prof:hasRole role:constraints .

@@ -1,0 +1,89 @@
+id: https://nbnl.info/meetdata
+version: 1.1
+close_mappings:
+  - prof:Profile  # No.
+annotations:
+  prof:hasResource:
+    - https://nbnl.info/meetdata/schema/tso/shacl
+    - https://nbnl.info/meetdata/schema/dso/shacl
+name: meetdata
+description: Meetdata profile.
+title: Meetdata
+imports:
+  - linkml:types
+license: https://www.apache.org/licenses/LICENSE-2.0.txt
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cim: https://cim.ucaiug.io/ns#
+  core-eq: https://nbnl.info/core-eq/
+  nbnl-term: https://nbnl.info/energiesysteembeheer/
+  meetdata: https://nbnl.info/meetdata/vocab/
+classes:
+  C00011:  # TODO: Or should this be S...? Vocab/schema role of LinkML is muddy right now...
+    alias: MarketEvaluationPoint
+    class_uri: cim:MarketEvaluationPoint
+    description:
+      The identification of an entity where energy products are measured
+      or computed.
+    exact_mappings:
+      - nbnl-term:aansluiting
+    is_a: UsagePoint
+    attributes:
+      sbi_codes:
+        description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
+          of Commerce to classify activities performed by an organisation.
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes
+        range: string
+        required: false
+        multivalued: true
+  MarketEvaluationPoint:  # TODO: Or like this...
+    class_uri: meetdata:C0001
+    is_a: CIM_MarketEvaluationPoint
+    exact_mappings:
+      - nbnl-term:aansluiting
+    description:
+      The identification of an entity where energy products are measured
+      or computed.
+    attributes:
+      sbi_codes:
+        description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
+          of Commerce to classify activities performed by an organisation.
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes
+        range: string
+        required: false
+        multivalued: true
+  TestClass:  # TODO: Or like thissssss...
+    annotations:
+      uri: meetdata:C0001
+    class_uri: cim:MarketEvaluationPoint
+    exact_mappings:
+      - nbnl-term:aansluiting
+    description:
+      The identification of an entity where energy products are measured
+      or computed.
+    attributes:
+      sbi_codes:
+        description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
+          of Commerce to classify activities performed by an organisation.
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes
+        range: string
+        required: false
+        multivalued: true
+  C00012:
+    alias: MarketEvaluationPoint
+    class_uri: cim:MarketEvaluationPoint
+    deprecated_element_has_exact_replacement: 
+    description:
+      The identification of an entity where energy products are measured
+      or computed.
+    exact_mappings:
+      - nbnl-term:aansluiting
+    is_a: UsagePoint
+    attributes:
+      sbi_codes:
+        description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
+          of Commerce to classify activities performed by an organisation.
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes
+        range: string
+        required: false
+        multivalued: true

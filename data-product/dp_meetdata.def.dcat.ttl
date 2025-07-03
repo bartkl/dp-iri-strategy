@@ -1,21 +1,26 @@
-@prefix : <https://nbnl.info/data-product/> .
+@prefix dp: <https://nbnl.info/ontology/data-product> .
+@prefix pav: <http://purl.org/pav/> .
 
-:meetdata a dcat:Dataset ;
+<https://nbnl.info/data-product/meetdata> a dcat:Dataset ;
+    pav:version "3.1" ;
     dct:creator "NBNL: Team Semantiek" ;
-    owl:versionIRI <https://rawusercontent.github.com/meetdata/9f1199ab> .  # git-ref
+    owl:versionIRI <https://github.com/Netbeheer-Nederland/dp-meetdata/blob/c6d27cefe66337c26ee94f77e0c0c13972f798a7/information_models/dp_meetdata.schema.linkml.yml> .
+    pav:version "c6d27cefe66337c26ee94f77e0c0c13972f798a7" .
 
     dct:conformsTo <https://nbnl.info/profile/core-eq> ,
-    :usesVocabulary <https://nbnl.info/ontology/meetdata> ,
+    dp:usesVocabulary <https://nbnl.info/ontology/meetdata> ,
                    <https://nbnl.info/ontology/core-eq> .
-    :hasSchema <https://nbnl.info/schema/meetdata/v1> ,
-               <https://nbnl.info/schema/meetdata/v2> ,
-               <https://nbnl.info/schema/meetdata/v3> .
+    dp:hasSchema <https://nbnl.info/schema/meetdata/base/v1> ,
+                 <https://nbnl.info/schema/meetdata/base/v2> ,
+                 <https://nbnl.info/schema/meetdata/tso/v1> ,
+                 <https://nbnl.info/schema/meetdata/dso/v1> ,
+                 <https://nbnl.info/schema/meetdata/dso/v2> ,
+                 <https://nbnl.info/schema/meetdata/dso/v3> .
 
 
-
-# TODO: Use terms from DX-PROF or another standard.
-:usesVocabulary rdfs:subPropertyOf dct:conformsTo .
-:hasSchema rdfs:subPropertyOf dct:conformsTo .
+# TODO: Move. Use terms from DX-PROF or another standard.
+dp:usesVocabulary rdfs:subPropertyOf dct:conformsTo .
+dp:hasSchema rdfs:subPropertyOf dct:conformsTo .
 
 # NOTES
     # :usesThesaurus rdfs:subPropertyOf dct:conformsTo .

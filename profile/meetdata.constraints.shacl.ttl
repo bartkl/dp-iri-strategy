@@ -1,0 +1,33 @@
+@prefix : <https://nbnl.info/meetdata/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:S0001 a sh:NodeShape ;
+    sh:deactivated true ;
+    sh:name "MarketEvaluationPoint" ;
+    sh:targetClass :C0001 ;  # TODO: Decide whether we never directly use CIM.
+    sh:property [
+        sh:path :P0001 ;
+        sh:minCount 0
+    ] .
+
+:S0002 a sh:NodeShape ;
+    sh:name "MarketEvaluationPoint" ;
+    sh:targetClass :C0001 ;
+    sh:property [
+        sh:path :P0001 ;
+        sh:minCount 1
+    ] ;
+    dcterms:replaces :S0001
+.
+
+
+# NOTE: Implicit targeting is not an option, since it does not allow deprecation:
+
+:C0003 a sh:NodeShape , owl:Class ;
+    sh:name "MarketEvaluationPoint" ;
+    sh:property [
+        sh:path :P0002 ;
+        sh:minCount 0
+    ] .

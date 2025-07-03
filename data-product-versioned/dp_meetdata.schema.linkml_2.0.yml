@@ -1,7 +1,7 @@
-id: https://nbnl.info/schema/meetdata
-version: 1.1
+id: https://nbnl.info/schema/meetdata/v2
+version: 2.0
 name: meetdata
-description: Information model for the Meetdata data product.
+description: Information models for the Meetdata data product.
 title: Meetdata
 imports:
 - linkml:types
@@ -25,7 +25,7 @@ classes:
       sbi_codes:
         description: Standaard BedrijfsIndeling code. Used by the Dutch Chamber
           of Commerce to classify activities performed by an organisation.
-        slot_uri: vocab:MarketEvaluationPoint.sbiCodes
+        slot_uri: vocab:MarketEvaluationPoint.sbiCodes  # NOTE: Although shape has breaking change, the meaning of the term is the same. Use cases can require information, this is different from it being an essential property of something in the meaning sense.
         range: string
-        required: false
+        required: true  # NOTE: Made to be required since 1.1, which indicates major version
         multivalued: true
