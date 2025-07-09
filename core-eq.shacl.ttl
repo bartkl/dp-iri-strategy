@@ -1,12 +1,13 @@
-@prefix : <https://nbnl.info/meetdata/> .
+@prefix : <https://core-eq.nbnl.info/vocab/>.
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
 :S0001 a sh:NodeShape ;
     sh:deactivated true ;
-    sh:name "MarketEvaluationPoint" ;
     sh:targetClass :C0001 ;  # TODO: Decide whether we never directly use CIM.
+    skos:altLabel "MarketEvaluationPoint" ;  # NOTE: `sh:name` is only allowed for use with property shapes.
     sh:property [
         sh:path :P0001 ;
         sh:minCount 0

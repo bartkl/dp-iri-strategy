@@ -1,0 +1,9 @@
+@prefix : <https://core-eq.nbnl.info/vocab/> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+# TODO: Look for or define better term than `rdfs:comment` for specifying target language.
+:0002 skosxl:altLabel
+    [ rdfs:comment "Python" ; skosxl:literalForm "sbi_codes" ] ,  
+    [ rdfs:comment "Java" ; skosxl:literalForm "sbiCodes" ] .

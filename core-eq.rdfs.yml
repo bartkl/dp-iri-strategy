@@ -1,0 +1,19 @@
+- uri: cim:MarketEvaluationPoint
+  type: rdfs:Class
+  label: MarketEvaluationPoint
+  definition:
+    en: >-
+      The identification of an entity where energy products are measured
+    nl: >-
+     De identificatie van een entiteit waar energieproducten gemeten worden
+  isDefinedBy: https://cim.ucaiug.io/ns
+- uri: core-eq:0001
+  type: rdf:Property
+  label: sbiCodes
+  definition:
+    en: >-
+      Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation.
+  domain: cim:MarketEvaluationPoint
+  exactMatch:
+    nbnl:sbiCodes
+  range: xsd:string

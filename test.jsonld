@@ -1,0 +1,115 @@
+[
+  {
+    "@id": "https://core-eq.nbnl.info/vocab/0002",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://core-eq.nbnl.info/vocab/0001"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "sbiCodes"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://nbnl.info/thesaurus/ebs/sbiCodes"
+      }
+    ],
+    "http://www.w3.org/2008/05/skos-xl#altLabel": [
+      {
+        "@id": "_:nacf92a42ccc74d60aa035e95a48aa215b1"
+      },
+      {
+        "@id": "_:nacf92a42ccc74d60aa035e95a48aa215b2"
+      }
+    ]
+  },
+  {
+    "@id": "_:nacf92a42ccc74d60aa035e95a48aa215b1",
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@value": "Python"
+      }
+    ],
+    "http://www.w3.org/2008/05/skos-xl#literalForm": [
+      {
+        "@value": "sbi_codes"
+      }
+    ]
+  },
+  {
+    "@id": "_:nacf92a42ccc74d60aa035e95a48aa215b2",
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@value": "Java"
+      }
+    ],
+    "http://www.w3.org/2008/05/skos-xl#literalForm": [
+      {
+        "@value": "sbiCodes"
+      }
+    ]
+  },
+  {
+    "@id": "https://cim.ucaiug.io/ns#MarketEvaluationPoint",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://cim.ucaiug.io/ns#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "MarketEvaluationPoint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The identification of an entity where energy products are measured"
+      },
+      {
+        "@language": "nl",
+        "@value": "De identificatie van een entiteit waar energieproducten gemeten worden"
+      }
+    ]
+  },
+  {
+    "@id": "https://core-eq.nbnl.info/vocab/0001",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "MarketEvaluationPoint"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://cim.ucaiug.io/ns#MarketEvaluationPoint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@value": "..."
+      }
+    ]
+  }
+]

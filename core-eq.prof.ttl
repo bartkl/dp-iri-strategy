@@ -7,59 +7,63 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@base <https://nbnl.info/> .
+@base <https://core-eq.nbnl.info/> .
 
-<meetdata> a prof:Profile ;
-    rdfs:label "Meetdata Profile"@en ;
-    dcterms:title "Meetdata-profiel"@nl ,
-                  "Measurement Data Profile"@en ;
-    dcterms:description "Meetdata."@nl ,
+<> a prof:Profile ;
+    rdfs:label "Core Equipment"@en ;
+    dcterms:title "NBNL CIM-profiel: Core Equipment"@nl ,
+                  "NBNL CIM Profile: Core Equipment"@en ;
+    dcterms:description "Profile describing how to "@nl ,
                         "Measurement data."@en ;
     pav:version "1.1" ;  # TODO: Or git refs? Or nothing?
     dcterms:issued "2025-03-06T17:59:40+01:00"^^xsd:dateTime ;
-    prof:isProfileOf <core-eq> ;
-    dcterms:conformsTo <energiesysteembeheer> ;
+    prof:isProfileOf <https://cim.ucaiug.io> ;
+    dcterms:conformsTo <https://energiesysteembeheer.nbnl.info> ;  # TODO: Necessary/appropriate?
     dcterms:contributor gh:bartkl ,
                         gh:ritger-alliander ;
     dcterms:creator <https://www.netbeheer-nederland.nl> ;
     dcterms:publisher <https://www.netbeheer-nederland.nl> ;
-    dcterms:language "nl-NL"^^xsd:language ;
+    dcterms:language "en-US"^^xsd:language , "nl-NL"^^xsd:language ;
     dcterms:license <http://www.apache.org/licenses/LICENSE-2.0> ;
     dcterms:rightsHolder <https://www.netbeheer-nederland.nl> ;
 
     prof:hasResource [
         rdfs:label "LinkML schema"@en ;
-        dcterms:title "LinkML schema" ;
+        dcterms:title "LinkML schema"@en ;
         dcterms:description "LinkML schema"@en ;
         dcterms:conformsTo <https://w3id.org/linkml> ;
         dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
-        prof:hasArtifact <meetdata/schema/linkml> ;  # NOTE: Lowercase identifiers are reserved for reserved keywords. Models can use UPPER0001.
+        skos:scopeNote "Use conneg to negotiate using format." ;
+        prof:hasArtifact <linkml> ;
+        prof:hasRole role:schema ,  # nbnl-role:data-model
+                     role:vocabulary
+    ] , [
+        rdfs:label "SHACL schema"@en ;
+        dcterms:title "SHACL schema" ;
+        dcterms:description "SHACL schema"@en ;
+        dcterms:conformsTo <http://www.w3.org/ns/shacl> ;
+        dcterms:format <https://www.iana.org/assignments/media-types/application/ld+json> ,
+                       <https://www.iana.org/assignments/media-types/text/turtle> ;
+        prof:hasArtifact <shacl> ;
         prof:hasRole role:schema
     ] , [
-        rdfs:label "SHACL schema (JSON-LD)"@en ;
-        dcterms:title "SHACL schema (JSON-LD)" ;
-        dcterms:description "SHACL schema (JSON-LD)"@en ;
-        dcterms:conformsTo <http://www.w3.org/ns/shacl> ;
-        dcterms:format <https://www.iana.org/assignments/media-types/application/ld+json> ;
-        prof:hasArtifact <meetdata/schema/shacl> ;
-        prof:hasRole role:schema
-    ] , [
-        rdfs:label "SHACL schema (Turtle)"@en ;
-        dcterms:title "SHACL schema (Turtle)" ;
-        dcterms:description "SHACL schema (Turtle)"@en ;
-        dcterms:conformsTo <http://www.w3.org/ns/shacl> ;
-        dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
+        rdfs:label "JSON Schema schema (JSON)"@en ;
+        dcterms:title "JSON Schema schema (JSON)" ;
+        dcterms:description "JSON Schema schema (JSON)"@en ;
+        dcterms:conformsTo <https://json-schema.org> ;
+        dcterms:format <https://www.iana.org/assignments/media-types/application/json> ;
         skos:scopeNote "Content-negotiation must be used to the representation in the specific format" ;
-        prof:hasArtifact <meetdata/schema/shacl> ;
+        prof:hasArtifact <json-schema> ;
+        # prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.schema.jsonschema.json> ;  # TODO: Discover; the hypermedia approach. Saves a URI.
         prof:hasRole role:schema
     ] , [
-        rdfs:label "LinkML vocabulary"@en ;
-        dcterms:title "LinkML vocabulary" ;
-        dcterms:description "LinkML vocabulary"@en ;
-        dcterms:conformsTo <http://www.w3id.org/linkml> ;
-        dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
-        prof:hasArtifact <meetdata/vocab/linkml> ;
-        prof:hasRole role:schema
+        rdfs:label "RDFS+ vocabulary"@en ;
+        dcterms:title "RDFS+ vocabulary" ;
+        dcterms:description "RDFS+ vocabulary"@en ;
+        dcterms:conformsTo <https://www.w3.org/TR/rdf-schema/> ;
+        dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
+        prof:hasArtifact <rdfs> ;
+        prof:hasRole role:vocabulary
     ] .
 
 # TODO: Consider defining own roles.
@@ -74,52 +78,52 @@
     pav:version "1.8.5" .
     # dcterms:source <path-to-specific-file> .
 
-# <schema/meetdata> a prof:ResourceDescriptor ;
+# <schema/core-eq> a prof:ResourceDescriptor ;
 #     rdfs:label "Schema"@en ;
-#     dcterms:title "Meetdata schema" ;
+#     dcterms:title "core-eq schema" ;
 #     dcterms:description "Schema"@en ;
 #     dcterms:conformsTo <https://w3id.org/linkml> ;
 #     dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
-#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
 #     prof:hasRole role:schema .
 
-# <ontology/meetdata> a prof:ResourceDescriptor ;
+# <ontology/core-eq> a prof:ResourceDescriptor ;
 #     rdfs:label "Conceptueel model"@nl ;
 #     pav:version "1.1.0" ;
-#     dcterms:title "Meetdata schema" ;
+#     dcterms:title "core-eq schema" ;
 #     dcterms:description "Schema"@en ;
 #     dcterms:conformsTo <https://w3id.org/linkml> ;
 #     dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
-#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
 #     prof:hasRole role:schema .
 # i
-# <ontology/meetdata> a prof:ResourceDescriptor ;
+# <ontology/core-eq> a prof:ResourceDescriptor ;
 #     rdfs:label "Conceptueel model"@nl ;
 #     pav:version "2.1.0" ;
-#     dcterms:title "Meetdata schema" ;
+#     dcterms:title "core-eq schema" ;
 #     dcterms:description "Schema"@en ;
 #     dcterms:conformsTo <https://w3id.org/linkml> ;
 #     dcterms:format <https://www.iana.org/assignments/media-types/application/yaml> ;
-#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
 #     prof:hasRole role:schema .
 
-# <data-product/meetdata> a prof:ResourceDescriptor ;
+# <data-product/core-eq> a prof:ResourceDescriptor ;
 #     pav:version "1.1.0" ;
 #     rdfs:label "Documentation"@en ;
-#     dcterms:title "Meetdata schema" ;
+#     dcterms:title "core-eq schema" ;
 #     dcterms:description "Schema"@en ;
 #     dcterms:conformsTo <https://html.spec.whatwg.org> ;
 #     dcterms:format <https://www.iana.org/assignments/media-types/text/html> ;
-#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
+#     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.schema.linkml.yml> ;
 #     prof:hasRole role:specification ,
 #                  role:guide .
 
-# # <constraints/meetdata> a prof:ResourceDescriptor ;
+# # <constraints/core-eq> a prof:ResourceDescriptor ;
 # #     pav:version "1.1.0" ;
 # #     rdfs:label "Constraints"@en ;
-# #     dcterms:title "Meetdata constraints" ;
+# #     dcterms:title "core-eq constraints" ;
 # #     dcterms:description "Constraints"@en ;
 # #     dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
 # #     dcterms:format <https://www.iana.org/assignments/media-types/application/ld+json> ;
-# #     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-meetdata/refs/tags/v1.1.0/information_models/dp_meetdata.constraints.shacl.jsonld> ;
+# #     prof:hasArtifact <https://raw.githubusercontent.com/Netbeheer-Nederland/dp-core-eq/refs/tags/v1.1.0/information_models/dp_meetdata.constraints.shacl.jsonld> ;
 # #     prof:hasRole role:constraints .

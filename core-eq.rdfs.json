@@ -1,0 +1,70 @@
+{
+    "@context": {
+        "id": "@id",
+        "type": "@type",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "cim": "https://cim.ucaiug.io/ns#",
+        "nbnl": "https://nbnl.info/thesaurus/ebs/",
+        "label": "rdfs:label",
+        "exactMatch": {
+            "@id": "skos:exactMatch",
+            "@type": "@id"
+        },
+        "definition": {
+            "@id": "skos:definition",
+            "@container": "@language"
+        },
+        "isDefinedBy": {
+            "@id": "rdfs:isDefinedBy",
+            "@type": "@id"
+        },
+        "domain": {
+            "@id": "rdfs:domain",
+            "@type": "@id"
+        },
+        "range": {
+            "@id": "rdfs:range",
+            "@type": "@id"
+        },
+        "classes": {
+            "@id": "classes",
+            "@type": "rdfs:Class",
+            "@container": [
+                "@id"
+            ]
+        },
+        "properties": {
+            "@id": "properties",
+            "@type": "rdf:Property",
+            "@container": [
+                "@id"
+            ]
+        },
+        "@vocab": "https://core-eq.nbnl.info/vocab/"
+    },
+    "@id": "https://core-eq.nbnl.info/vocab",
+    "classes": {
+        "cim:MarketEvaluationPoint": {
+            "definition": {
+                "en": "The identification of an entity where energy products are measured",
+                "nl": "De identificatie van een entiteit waar energieproducten gemeten worden"
+            },
+            "isDefinedBy": "https://cim.ucaiug.io/ns#",
+            "label": "MarketEvaluationPoint"
+        }
+    },
+    "properties": {
+        "0001": {
+            "definition": {
+                "en": "Standaard BedrijfsIndeling code. Used by the Dutch Chamber of Commerce to classify activities performed by an organisation."
+            },
+            "domain": "cim:MarketEvaluationPoint",
+            "range": "xsd:string",
+            "exactMatch": "nbnl:sbiCodes",
+            "label": "sbiCodes"
+        }
+    }
+}
